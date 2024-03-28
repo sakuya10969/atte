@@ -1,0 +1,28 @@
+header {
+    height: 50px;
+    padding-top: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.header_ttl_content {
+    padding-left: 30px;
+}
+
+main {
+    background-color: whitesmoke;
+    height: 85vh;
+}
+
+footer {
+    height: 15px;
+}
+
+.footer_content {
+    text-align: center;
+    transform: translateY(15px);
+}
+
+.footer_copyright {
+    font-weight: bold;
+}

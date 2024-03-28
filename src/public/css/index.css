@@ -1,0 +1,67 @@
+header{
+    justify-content: space-between;
+}
+
+.header_menu{
+    display:flex;
+    justify-content:space-around;
+}
+
+.header_menu_item{
+    margin:0 30px 0 50px;
+    list-style:none;
+}
+
+.header_menu_link{
+    text-decoration:none;
+    color:black;
+    font-weight:bold;
+}
+
+
+.main_text {
+    text-align: center;
+    margin-top:20px;
+    transform:translateY(40px);
+}
+
+.main_text_item{
+    letter-spacing:4px;
+}
+
+.btn_container{
+    width:800px;
+    margin:0 auto;
+    transform:translateY(50px);
+}
+
+.btn_container_upper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn_container_lower{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.attendance_form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:15px;
+}
+
+.form_btn {
+    width: 450px;
+    height: 200px;
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color:white;
+    color:black;
+    border: none;
+    cursor: pointer;
+    font-weight:bold;
+}
