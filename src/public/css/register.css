@@ -15,7 +15,7 @@
 .register_form_input {
     display: block;
     width: 300px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     padding: 10px 15px;
     border: 2px solid silver;
     border-radius: 4px;
@@ -31,6 +31,7 @@
     background-color: blue;
     cursor: pointer;
     border-radius: 4px;
+    font-weight:bold;
 }
 
 .register_form_text {
