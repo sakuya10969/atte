@@ -12,6 +12,8 @@ class AuthenticatedSessionController extends Controller
         return view("auth.login");
     }
 
+
+
     public function destroy(Request $request)
     {
         Auth::logout();

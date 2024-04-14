@@ -31,51 +31,25 @@
     </div>
     <div class="btn_container">
         <div class="btn_container_upper">
-            @if($ongoing_attendance)
-            <form class="attendance_form" action="/attendance_start" method="post">
-                @csrf
-                <button class="form_btn" type="submit" disabled>勤務開始</button>
-            </form>
-            <form class="attendance_form" action="/attendance_end" method="post">
-                @csrf
-                <button class="form_btn" type="submit">勤務終了</button>
-            </form>
-
-            @else
             <form class="attendance_form" action="/attendance_start" method="post">
                 @csrf
                 <button class="form_btn" type="submit">勤務開始</button>
             </form>
             <form class="attendance_form" action="/attendance_end" method="post">
                 @csrf
-                <button class="form_btn" type="submit" disabled>勤務終了</button>
+                <button class="form_btn" type="submit">勤務終了</button>
             </form>
-            @endif
         </div>
 
-
-
         <div class="btn_container_lower">
-            @if($ongoing_rest)
-            <form class="attendance_form" action="/rest_start" method="post">
-                @csrf
-                <button class="form_btn" type="submit" disabled>休憩開始</button>
-            </form>
-            <form class="attendance_form" action="/rest_end" method="post">
-                @csrf
-                <button class="form_btn" type="submit">休憩終了</button>
-            </form>
-
-            @else
             <form class="attendance_form" action="/rest_start" method="post">
                 @csrf
                 <button class="form_btn" type="submit">休憩開始</button>
             </form>
             <form class="attendance_form" action="/rest_end" method="post">
                 @csrf
-                <button class="form_btn" type="submit" disabled>休憩終了</button>
+                <button class="form_btn" type="submit">休憩終了</button>
             </form>
-            @endif
         </div>
     </div>
 @endsection

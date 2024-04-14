@@ -14,6 +14,8 @@ class RegisteredUserController extends Controller
         return view("auth.register");
     }
 
+
+
     public function store(RegisterRequest $request)
     {
         $user_info = $request->only(["name", "email"]);
