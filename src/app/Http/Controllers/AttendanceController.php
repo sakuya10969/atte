@@ -18,18 +18,13 @@ class AttendanceController extends Controller
 
 
 
-    public function attendance()
+    public function attendance(Request $request)
     {
-        $attendance_items = User::with([
-            'attendances' => function ($query) {
-                $query->orderBy('attendance_date', 'asc');
-            },
-            'rests' => function ($query) {
-                $query->orderBy('rest_date', 'asc');
-            }
-        ])->paginate(5);
+        $unique_dates = Attendance::selectRaw("DATE(attendance_date) as date")->distinct()->orderBy("date")->get();
+        $selected_date = $request->query("date", $unique_dates->first()->date);
+        $attendance_items = Attendance::with(["users", "rests"])->whereDate("attendance_date", $selected_date)->paginate(5);
 
-        return view("attendance", compact("attendance_items"));
+        return view("attendance", compact("attendance_items", "unique_dates", "selected_date"));
     }
 
 

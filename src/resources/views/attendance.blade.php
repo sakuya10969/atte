@@ -21,7 +21,7 @@
 
 @section('main_content')
     <div class="upper_pagination">
-        {{ $attendance_items->links("vendor.pagination.simple_custom") }}
+        {{ $attendance_items->links('vendor.pagination.date') }}
     </div>
     <table class="attendance_table">
         <tr class="attendance_table_row">
@@ -40,6 +40,6 @@
         </tr>
     </table>
     <div class="lower_pagination">
-        {{$attendance_items->links("vendor.pagination.detail_custom")}}
+        {{ $attendance_items->links('vendor.pagination.page_number') }}
     </div>
 @endsection
