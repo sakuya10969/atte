@@ -10,24 +10,15 @@ class Rest extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["user_id", "rest_start", "rest_end"];
+    protected $fillable = ["user_id", "attendance_id", "rest_start", "rest_end"];
 
     public function user()
     {
-        $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function attendance()
     {
-        $this->belongsTo(Attendance::class);
-    }
-
-    public function rest_time()
-    {
-        $rest_start = Carbon::parse($this->rest_start);
-        $rest_end = Carbon::parse($this->rest_end);
-        $rest_time = $rest_end->diff($rest_start);
-
-        return $rest_time->format("%H:%I:%S");
+        return $this->belongsTo(Attendance::class);
     }
 }

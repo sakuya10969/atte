@@ -20,8 +20,8 @@
 @endsection
 
 @section('main_content')
-    <div class="upper_pagination">
-        {{ $attendance_items->links('vendor.pagination.date') }}
+    <div class="top_pagination">
+        {{ $attendance_by_date->links('vendor.pagination.date') }}
     </div>
     <table class="attendance_table">
         <tr class="attendance_table_row">
@@ -31,15 +31,17 @@
             <th>休憩時間</th>
             <th>勤務時間</th>
         </tr>
-        <tr class="attendance_table_row">
-            <td>sakuya</td>
-            <td>13:00</td>
-            <td>22:00</td>
-            <td>1:00</td>
-            <td>7:00</td>
-        </tr>
+        @foreach ($attendance_items as $attendance_item)
+            <tr class="attendance_table_row">
+                <td>{{ $attendance_item->user->name }}</td>
+                <td>{{ \Carbon\Carbon::parse($attendance_item->attendance_start)->format("H:i:s") }}</td>
+                <td>{{ \Carbon\Carbon::parse($attendance_item->attendance_end)->format("H:i:s") }}</td>
+                <td>{{ $attendance_item->rest_time() }}</td>
+                <td>{{ $attendance_item->attendance_time() }}</td>
+            </tr>
+        @endforeach
     </table>
-    <div class="lower_pagination">
+    <div class="bottom_pagination">
         {{ $attendance_items->links('vendor.pagination.page_number') }}
     </div>
 @endsection
