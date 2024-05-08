@@ -34,10 +34,10 @@ header {
 
 
 .attendance_table{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:700px;
+    margin:0 auto;
+    width:80vw;
+    height:450px;
+    transform:translateY(100px);
 }
 
 .attendance_table_row{
@@ -47,6 +47,7 @@ header {
 .attendance_table_row th{
     padding:20px 110px 20px 20px;
     white-space:nowrap;
+    text-align:left;
 }
 
 .attendance_table_row td{
@@ -55,5 +56,28 @@ header {
 }
 
 .bottom_pagination{
-    transform:translateY(-90px);
+    transform:translateY(120px);
+}
+
+.top_pagination{
+    text-align:center;
+    font-size:20px;
+    font-weight:bold;
+    transform:translateY(60px);
+}
+
+.previous_link{
+    text-decoration:none;
+    color:blue;
+    margin-right:30px;
+    border:1px solid blue;
+    padding:0 10px;
+}
+
+.later_link{
+    text-decoration:none;
+    color:blue;
+    margin-left:30px;
+    border: 1px solid blue;
+    padding:0 10px;
 }

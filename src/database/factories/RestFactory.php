@@ -28,8 +28,8 @@ class RestFactory extends Factory
         }
 
         return [
-            "rest_start" => "2024-05-01 13:00:00",
-            "rest_end" => "2024-05-01 14:00:00",
+            "rest_start" => "2024-05-10 13:00:00",
+            "rest_end" => "2024-05-10 14:00:00",
             "user_id" => array_pop($user_id),
             "attendance_id" => array_pop($attendance_id)
         ];

@@ -21,7 +21,12 @@
 
 @section('main_content')
     <div class="top_pagination">
-        {{ $attendance_by_date->links('vendor.pagination.date') }}
+        <a class="previous_link"
+            href="{{ route('attendance.date', ['date' => $date->copy()->subDay()->format('Y-m-d')]) }}">
+            <</a>
+                <span class="attendance_date">{{ $date->format('Y-m-d') }}</span>
+                <a class="later_link"
+                    href="{{ route('attendance.date', ['date' => $date->copy()->addDay()->format('Y-m-d')]) }}">></a>
     </div>
     <table class="attendance_table">
         <tr class="attendance_table_row">
@@ -34,8 +39,8 @@
         @foreach ($attendance_items as $attendance_item)
             <tr class="attendance_table_row">
                 <td>{{ $attendance_item->user->name }}</td>
-                <td>{{ \Carbon\Carbon::parse($attendance_item->attendance_start)->format("H:i:s") }}</td>
-                <td>{{ \Carbon\Carbon::parse($attendance_item->attendance_end)->format("H:i:s") }}</td>
+                <td>{{ \Carbon\Carbon::parse($attendance_item->attendance_start)->format('H:i:s') }}</td>
+                <td>{{ \Carbon\Carbon::parse($attendance_item->attendance_end)->format('H:i:s') }}</td>
                 <td>{{ $attendance_item->rest_time() }}</td>
                 <td>{{ $attendance_item->attendance_time() }}</td>
             </tr>

@@ -18,21 +18,13 @@ class AttendanceController extends Controller
 
 
 
-    public function attendance(Request $request)
+    public function attendance($date = "2024-05-10")
     {
-        $unique_dates = Attendance::selectRaw('DATE(attendance_date) as date')
-            ->distinct()
-            ->get()
-            ->pluck('date')
-            ->toArray();
+        $date = Carbon::createFromFormat('Y-m-d', $date);
 
-        $selected_date = $request->query('date', $unique_dates[0]);
+        $attendance_items = Attendance::with(["user", "rests"])->whereDate("attendance_date", $date)->paginate(5);
 
-        $attendance_by_date = Attendance::with(["user", "rests"])->whereDate("attendance_date", $selected_date)->paginate(5);
-
-        $attendance_items = Attendance::with(["user", "rests"])->paginate(5);
-
-        return view("attendance", compact("attendance_by_date", "attendance_items", "unique_dates", "selected_date"));
+        return view("attendance", compact("date", "attendance_items"));
     }
 
 

@@ -21,9 +21,9 @@ class AttendanceFactory extends Factory
         }
 
         return [
-            "attendance_date" => "2024-05-01",
-            "attendance_start" => "2024-05-01 09:00:00",
-            "attendance_end" => "2024-05-01 18:00:00",
+            "attendance_date" => "2024-05-10",
+            "attendance_start" => "2024-05-10 09:00:00",
+            "attendance_end" => "2024-05-10 18:00:00",
             "user_id" => array_pop($user_id)
         ];
     }
