@@ -1,24 +1,24 @@
-#Atte(勤怠管理システム)
--企業の勤怠管理システムです。
+# Atte(勤怠管理システム)
+- 企業の勤怠管理システムです。
 
-##機能一覧
--Fortifyを用いた認証機能付き
--勤怠ページ
--日付別勤怠ページ
+## 機能一覧
+- Fortifyを用いた認証機能付き
+- 勤怠ページ
+- 日付別勤怠ページ
 
-##使用技術
--Laravel 8.x
+## 使用技術
+- Laravel 8.x
 
-#環境構築
-##Docker
--git clone git@github.com:sakuya10969/atte.git
--docker-compose up -d --build
+# 環境構築
+## Docker
+- git clone git@github.com:sakuya10969/atte.git
+- docker-compose up -d --build
 
-##Laravel
--docker-compose exec php bash
--composer install
--cp .env.example .env
--.envファイルのDBの環境変数を下記に変更
+## Laravel
+- docker-compose exec php bash
+- composer install
+- cp .env.example .env
+- .envファイルのDBの環境変数を下記に変更
 
 DB_CONNECTION=mysql
 DB_HOST=mysql
@@ -27,15 +27,15 @@ DB_DATABASE=laravel_db
 DB_USERNAME=laravel_user
 DB_PASSWORD=laravel_pass
 
--php artisan key:generate
--php artisan migrate
--php artisan db:seed
+- php artisan key:generate
+- php artisan migrate
+- php artisan db:seed
 
-#URL
--開発環境:https://localhost/
--phpMyAdmin:https://localhost:8080/
+# URL
+- 開発環境:https://localhost/
+- phpMyAdmin:https://localhost:8080/
 
-#テストユーザー
--username:sakuya
--email:sakuya@a.com
--password:sakuya2001
+# テストユーザー
+- username:sakuya
+- email:sakuya@a.com
+- password:sakuya2001
