@@ -30,14 +30,4 @@ class Attendance extends Model
 
         return $attendance_time->format("%H:%I:%S");
     }
-
-    public function rest_time()
-    {
-        return $this->rests->map(function ($rest) {
-            $rest_start = Carbon::parse($rest->rest_start);
-            $rest_end = Carbon::parse($rest->rest_end);
-            $rest_time = $rest_end->diff($rest_start);
-            return $rest_time->format("%H:%I:%S");
-        })->implode(":");
-    }
 }

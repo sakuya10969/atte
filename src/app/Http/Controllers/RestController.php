@@ -6,14 +6,16 @@ use Illuminate\Http\Request;
 use App\Models\Rest;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use App\Models\Attendance;
 
 class RestController extends Controller
 {
     public function rest_start()
     {
         $user_id = Auth::id();
-
-        $ongoing_rest = Rest::where("user_id", $user_id)->whereNull("rest_end")->first();
+        $attendance = Attendance::where("user_id",$user_id)->latest()->first();
+        $attendance_id = $attendance->id;
+        $ongoing_rest = Rest::where("attendance_id", $attendance_id)->whereNull("rest_end")->first();
 
         if ($ongoing_rest) {
             return redirect("/");
@@ -23,6 +25,7 @@ class RestController extends Controller
 
         Rest::create([
             "user_id" => $user_id,
+            "attendance_id" => $attendance_id,
             "rest_start" => $rest_start,
             "rest_end" => null,
         ]);
@@ -35,11 +38,10 @@ class RestController extends Controller
     public function rest_end()
     {
         $user_id = Auth::id();
+        $attendance = Attendance::where("user_id",$user_id)->latest()->first();
+        $attendance_id = $attendance->id;
         $rest_end = Carbon::now();
-        $ongoing_rest = Rest::where('user_id', $user_id)
-            ->whereNull('rest_end')
-            ->latest('rest_start')
-            ->first();
+        $ongoing_rest = Rest::where("attendance_id", $attendance_id)->whereNull("rest_end")->first();
 
         if ($ongoing_rest) {
             $ongoing_rest->update([

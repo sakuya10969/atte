@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Carbon\Carbon;
 
 class AttendanceFactory extends Factory
 {
@@ -21,9 +22,9 @@ class AttendanceFactory extends Factory
         }
 
         return [
-            "attendance_date" => "2024-05-10",
-            "attendance_start" => "2024-05-10 09:00:00",
-            "attendance_end" => "2024-05-10 18:00:00",
+            "attendance_date" => Carbon::now()->toDateString(),
+            "attendance_start" => Carbon::createFromTime(9, 0, 0)->toDateTimeString(),
+            "attendance_end" => Carbon::createFromTime(18, 0, 0)->toDateTimeString(),
             "user_id" => array_pop($user_id)
         ];
     }

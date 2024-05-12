@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Carbon\Carbon;
 
 class RestFactory extends Factory
 {
@@ -13,13 +14,6 @@ class RestFactory extends Factory
      */
     public function definition()
     {
-        static $user_id = null;
-
-        if (is_null($user_id)) {
-            $user_id = range(1, 21);
-            shuffle($user_id);
-        }
-
         static $attendance_id = null;
 
         if (is_null($attendance_id)) {
@@ -28,9 +22,8 @@ class RestFactory extends Factory
         }
 
         return [
-            "rest_start" => "2024-05-10 13:00:00",
-            "rest_end" => "2024-05-10 14:00:00",
-            "user_id" => array_pop($user_id),
+            "rest_start" => Carbon::createFromTime(13, 0, 0)->toDateTimeString(),
+            "rest_end" => Carbon::createFromTime(14, 0, 0)->toDateTimeString(),
             "attendance_id" => array_pop($attendance_id)
         ];
     }

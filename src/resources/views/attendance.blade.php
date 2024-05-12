@@ -37,13 +37,15 @@
             <th>勤務時間</th>
         </tr>
         @foreach ($attendance_items as $attendance_item)
-            <tr class="attendance_table_row">
-                <td>{{ $attendance_item->user->name }}</td>
-                <td>{{ \Carbon\Carbon::parse($attendance_item->attendance_start)->format('H:i:s') }}</td>
-                <td>{{ \Carbon\Carbon::parse($attendance_item->attendance_end)->format('H:i:s') }}</td>
-                <td>{{ $attendance_item->rest_time() }}</td>
-                <td>{{ $attendance_item->attendance_time() }}</td>
-            </tr>
+            @foreach ($attendance_item->rests as $rest)
+                <tr class="attendance_table_row">
+                    <td>{{ $attendance_item->user->name }}</td>
+                    <td>{{ \Carbon\Carbon::parse($attendance_item->attendance_start)->format('H:i:s') }}</td>
+                    <td>{{ \Carbon\Carbon::parse($attendance_item->attendance_end)->format('H:i:s') }}</td>
+                    <td>{{ $rest->rest_time() }}</td>
+                    <td>{{ $attendance_item->attendance_time() }}</td>
+                </tr>
+            @endforeach
         @endforeach
     </table>
     <div class="bottom_pagination">

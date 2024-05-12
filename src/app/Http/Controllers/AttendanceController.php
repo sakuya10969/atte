@@ -18,9 +18,13 @@ class AttendanceController extends Controller
 
 
 
-    public function attendance($date = "2024-05-10")
+    public function attendance($date = null)
     {
-        $date = Carbon::createFromFormat('Y-m-d', $date);
+        if ($date == null) {
+            $date = Carbon::today();
+        } else {
+            $date = Carbon::createFromFormat('Y-m-d', $date);
+        }
 
         $attendance_items = Attendance::with(["user", "rests"])->whereDate("attendance_date", $date)->paginate(5);
 
