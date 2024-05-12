@@ -7,7 +7,9 @@
 - 日付別勤怠ページ
 
 ## 使用技術
+- PHP 7.4.9
 - Laravel 8.x
+- MySql 8.0.26
 
 # 環境構築
 ## Docker
@@ -36,6 +38,6 @@ DB_PASSWORD=laravel_pass
 - phpMyAdmin:https://localhost:8080/
 
 # テストユーザー
-- username:sakuya
-- email:sakuya@a.com
-- password:sakuya2001
+- username:test
+- email:test@a.com
+- password:testpass
