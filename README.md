@@ -9,7 +9,7 @@
 ## 使用技術
 - PHP 7.4.9
 - Laravel 8.x
-- MySql 8.0.26
+- MySQL 8.0.26
 
 # 環境構築
 ## Docker
