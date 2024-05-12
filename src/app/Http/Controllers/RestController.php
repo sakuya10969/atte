@@ -24,7 +24,6 @@ class RestController extends Controller
         $rest_start = Carbon::now();
 
         Rest::create([
-            "user_id" => $user_id,
             "attendance_id" => $attendance_id,
             "rest_start" => $rest_start,
             "rest_end" => null,
