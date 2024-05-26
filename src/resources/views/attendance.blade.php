@@ -21,12 +21,9 @@
 
 @section('main_content')
     <div class="top_pagination">
-        <a class="previous_link"
-            href="{{ route('attendance.date', ['date' => $date->copy()->subDay()->format('Y-m-d')]) }}">
-            <</a>
-                <span class="attendance_date">{{ $date->format('Y-m-d') }}</span>
-                <a class="later_link"
-                    href="{{ route('attendance.date', ['date' => $date->copy()->addDay()->format('Y-m-d')]) }}">></a>
+        <a class="previous_link" href="{{ route('attendance.date', ['date' => $date->copy()->subDay()->format('Y-m-d')]) }}"> < </a>
+            <span class="attendance_date">{{ $date->format('Y-m-d') }}</span>
+        <a class="later_link" href="{{ route('attendance.date', ['date' => $date->copy()->addDay()->format('Y-m-d')]) }}"> > </a>
     </div>
     <table class="attendance_table">
         <tr class="attendance_table_row">
