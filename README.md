@@ -36,8 +36,3 @@ DB_PASSWORD=laravel_pass
 # URL
 - 開発環境:https://localhost/
 - phpMyAdmin:https://localhost:8080/
-
-# テストユーザー
-- username:test
-- email:test@a.com
-- password:testpass
